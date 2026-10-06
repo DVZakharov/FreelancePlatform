@@ -1,0 +1,3 @@
+﻿namespace FreelancePlatform.Application.Features.Milestones.GetMilestonesForContract;
+
+public record GetMilestonesForContractRequest(string ContractId);

@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "O:\\Projects Visual Studio\\FreelancePlatform\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{168EF196-7EA0-AA7A-D7AD-3488862A7594}|FreelancePlatform.Application\\FreelancePlatform.Application.csproj|o:\\projects visual studio\\freelanceplatform\\freelanceplatform.application\\features\\projects\\searchprojects\\searchprojectsvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{168EF196-7EA0-AA7A-D7AD-3488862A7594}|FreelancePlatform.Application\\FreelancePlatform.Application.csproj|solutionrelative:freelanceplatform.application\\features\\projects\\searchprojects\\searchprojectsvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{168EF196-7EA0-AA7A-D7AD-3488862A7594}|FreelancePlatform.Application\\FreelancePlatform.Application.csproj|o:\\projects visual studio\\freelanceplatform\\freelanceplatform.application\\features\\projects\\searchprojects\\searchprojectsresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{168EF196-7EA0-AA7A-D7AD-3488862A7594}|FreelancePlatform.Application\\FreelancePlatform.Application.csproj|solutionrelative:freelanceplatform.application\\features\\projects\\searchprojects\\searchprojectsresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{168EF196-7EA0-AA7A-D7AD-3488862A7594}|FreelancePlatform.Application\\FreelancePlatform.Application.csproj|o:\\projects visual studio\\freelanceplatform\\freelanceplatform.application\\features\\projects\\searchprojects\\searchprojectsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{168EF196-7EA0-AA7A-D7AD-3488862A7594}|FreelancePlatform.Application\\FreelancePlatform.Application.csproj|solutionrelative:freelanceplatform.application\\features\\projects\\searchprojects\\searchprojectsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{168EF196-7EA0-AA7A-D7AD-3488862A7594}|FreelancePlatform.Application\\FreelancePlatform.Application.csproj|o:\\projects visual studio\\freelanceplatform\\freelanceplatform.application\\features\\projects\\getprojectbyid\\getprojectbyidenpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{168EF196-7EA0-AA7A-D7AD-3488862A7594}|FreelancePlatform.Application\\FreelancePlatform.Application.csproj|solutionrelative:freelanceplatform.application\\features\\projects\\getprojectbyid\\getprojectbyidenpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{168EF196-7EA0-AA7A-D7AD-3488862A7594}|FreelancePlatform.Application\\FreelancePlatform.Application.csproj|o:\\projects visual studio\\freelanceplatform\\freelanceplatform.application\\features\\projects\\cancelproject\\cancelprojectendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{168EF196-7EA0-AA7A-D7AD-3488862A7594}|FreelancePlatform.Application\\FreelancePlatform.Application.csproj|solutionrelative:freelanceplatform.application\\features\\projects\\cancelproject\\cancelprojectendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{168EF196-7EA0-AA7A-D7AD-3488862A7594}|FreelancePlatform.Application\\FreelancePlatform.Application.csproj|o:\\projects visual studio\\freelanceplatform\\freelanceplatform.application\\features\\projects\\updateproject\\updateprojectendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{168EF196-7EA0-AA7A-D7AD-3488862A7594}|FreelancePlatform.Application\\FreelancePlatform.Application.csproj|solutionrelative:freelanceplatform.application\\features\\projects\\updateproject\\updateprojectendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SearchProjectsValidator.cs",
+              "DocumentMoniker": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Application\\Features\\Projects\\SearchProjects\\SearchProjectsValidator.cs",
+              "RelativeDocumentMoniker": "FreelancePlatform.Application\\Features\\Projects\\SearchProjects\\SearchProjectsValidator.cs",
+              "ToolTip": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Application\\Features\\Projects\\SearchProjects\\SearchProjectsValidator.cs",
+              "RelativeToolTip": "FreelancePlatform.Application\\Features\\Projects\\SearchProjects\\SearchProjectsValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-19T16:25:51.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SearchProjectsResponse.cs",
+              "DocumentMoniker": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Application\\Features\\Projects\\SearchProjects\\SearchProjectsResponse.cs",
+              "RelativeDocumentMoniker": "FreelancePlatform.Application\\Features\\Projects\\SearchProjects\\SearchProjectsResponse.cs",
+              "ToolTip": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Application\\Features\\Projects\\SearchProjects\\SearchProjectsResponse.cs",
+              "RelativeToolTip": "FreelancePlatform.Application\\Features\\Projects\\SearchProjects\\SearchProjectsResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-19T16:24:07.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SearchProjectsRequest.cs",
+              "DocumentMoniker": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Application\\Features\\Projects\\SearchProjects\\SearchProjectsRequest.cs",
+              "RelativeDocumentMoniker": "FreelancePlatform.Application\\Features\\Projects\\SearchProjects\\SearchProjectsRequest.cs",
+              "ToolTip": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Application\\Features\\Projects\\SearchProjects\\SearchProjectsRequest.cs",
+              "RelativeToolTip": "FreelancePlatform.Application\\Features\\Projects\\SearchProjects\\SearchProjectsRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-19T16:21:56.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GetProjectByIdEnpoint.cs",
+              "DocumentMoniker": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Application\\Features\\Projects\\GetProjectById\\GetProjectByIdEnpoint.cs",
+              "RelativeDocumentMoniker": "FreelancePlatform.Application\\Features\\Projects\\GetProjectById\\GetProjectByIdEnpoint.cs",
+              "ToolTip": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Application\\Features\\Projects\\GetProjectById\\GetProjectByIdEnpoint.cs",
+              "RelativeToolTip": "FreelancePlatform.Application\\Features\\Projects\\GetProjectById\\GetProjectByIdEnpoint.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-19T16:19:24.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CancelProjectEndpoint.cs",
+              "DocumentMoniker": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Application\\Features\\Projects\\CancelProject\\CancelProjectEndpoint.cs",
+              "RelativeDocumentMoniker": "FreelancePlatform.Application\\Features\\Projects\\CancelProject\\CancelProjectEndpoint.cs",
+              "ToolTip": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Application\\Features\\Projects\\CancelProject\\CancelProjectEndpoint.cs",
+              "RelativeToolTip": "FreelancePlatform.Application\\Features\\Projects\\CancelProject\\CancelProjectEndpoint.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-19T14:48:31.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UpdateProjectEndpoint.cs",
+              "DocumentMoniker": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Application\\Features\\Projects\\UpdateProject\\UpdateProjectEndpoint.cs",
+              "RelativeDocumentMoniker": "FreelancePlatform.Application\\Features\\Projects\\UpdateProject\\UpdateProjectEndpoint.cs",
+              "ToolTip": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Application\\Features\\Projects\\UpdateProject\\UpdateProjectEndpoint.cs",
+              "RelativeToolTip": "FreelancePlatform.Application\\Features\\Projects\\UpdateProject\\UpdateProjectEndpoint.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwCAAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-19T14:47:32.525Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\bin\Debug\net10.0\FreelancePlatform.Domain.deps.json
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\bin\Debug\net10.0\FreelancePlatform.Domain.dll
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\bin\Debug\net10.0\FreelancePlatform.Domain.pdb
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\obj\Debug\net10.0\FreelancePlatform.Domain.GeneratedMSBuildEditorConfig.editorconfig
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\obj\Debug\net10.0\FreelancePlatform.Domain.AssemblyInfoInputs.cache
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\obj\Debug\net10.0\FreelancePlatform.Domain.AssemblyInfo.cs
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\obj\Debug\net10.0\FreelancePlatform.Domain.csproj.CoreCompileInputs.cache
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\obj\Debug\net10.0\FreelancePlatform.Domain.dll
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\obj\Debug\net10.0\refint\FreelancePlatform.Domain.dll
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\obj\Debug\net10.0\FreelancePlatform.Domain.pdb
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\obj\Debug\net10.0\ref\FreelancePlatform.Domain.dll

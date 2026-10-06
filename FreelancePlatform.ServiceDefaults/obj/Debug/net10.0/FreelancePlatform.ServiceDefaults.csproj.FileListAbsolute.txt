@@ -1,0 +1,12 @@
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\bin\Debug\net10.0\FreelancePlatform.ServiceDefaults.deps.json
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\bin\Debug\net10.0\FreelancePlatform.ServiceDefaults.dll
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\bin\Debug\net10.0\FreelancePlatform.ServiceDefaults.pdb
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\obj\Debug\net10.0\FreelancePlatform.ServiceDefaults.csproj.AssemblyReference.cache
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\obj\Debug\net10.0\FreelancePlatform.ServiceDefaults.GeneratedMSBuildEditorConfig.editorconfig
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\obj\Debug\net10.0\FreelancePlatform.ServiceDefaults.AssemblyInfoInputs.cache
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\obj\Debug\net10.0\FreelancePlatform.ServiceDefaults.AssemblyInfo.cs
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\obj\Debug\net10.0\FreelancePlatform.ServiceDefaults.csproj.CoreCompileInputs.cache
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\obj\Debug\net10.0\FreelancePlatform.ServiceDefaults.dll
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\obj\Debug\net10.0\refint\FreelancePlatform.ServiceDefaults.dll
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\obj\Debug\net10.0\FreelancePlatform.ServiceDefaults.pdb
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\obj\Debug\net10.0\ref\FreelancePlatform.ServiceDefaults.dll

@@ -1,0 +1,3 @@
+﻿namespace FreelancePlatform.Application.Features.Disputes.GetDisputesForContract;
+
+public record GetDisputesForContractRequest(string ContractId);
