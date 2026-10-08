@@ -9,3 +9,4 @@ O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\obj\Debug\n
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\obj\Debug\net10.0\refint\FreelancePlatform.Domain.dll
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\obj\Debug\net10.0\FreelancePlatform.Domain.pdb
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\obj\Debug\net10.0\ref\FreelancePlatform.Domain.dll
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Domain\obj\Debug\net10.0\FreelancePlatform.Domain.sourcelink.json

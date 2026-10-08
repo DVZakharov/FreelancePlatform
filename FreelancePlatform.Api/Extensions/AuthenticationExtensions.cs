@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using FreelancePlatform.Application.Common.Respose;
+using Newtonsoft.Json;
 
 namespace FreelancePlatform.Api.Extensions;
 
@@ -29,6 +31,22 @@ public static class AuthenticationExtensions
                 ValidIssuer = jwtSettings.Issuer,
                 ValidAudience = jwtSettings.Audience,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Secret))
+            };
+            options.Events = new JwtBearerEvents
+            {
+                OnChallenge = async context => {
+                    context.HandleResponse();
+                    context.Response.StatusCode = 401;
+                    context.Response.ContentType = "application/json";
+                    var result = Result<object>.Unauthorized("Unauthorized");
+                    await context.Response.WriteAsync(JsonConvert.SerializeObject(result));
+                },
+                OnForbidden = async context => {
+                    context.Response.StatusCode = 403;
+                    context.Response.ContentType = "application/json";
+                    var result = Result<object>.Forbidden("Forbidden");
+                    await context.Response.WriteAsync(JsonConvert.SerializeObject(result));
+                }
             };
         });
 

@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using FreelancePlatform.Application.Common.Interfaces;
 using FreelancePlatform.Application.Common.Respose;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Wolverine.Http;
@@ -9,6 +10,7 @@ namespace FreelancePlatform.Application.Features.Skills.DeleteSkill;
 
 public static class DeleteSkillEndpoint
 {
+    [Authorize(Roles = "Admin")]
     [WolverineDelete("/api/v1/skills/{id}"), Tags("Skills")]
     [EndpointSummary("Удаление умения")]
     [EndpointDescription("Возвращает сообщение об успешном удалении умения с указанным идентификатором.")]

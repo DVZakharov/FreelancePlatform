@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using FreelancePlatform.Application.Common.Interfaces;
 using FreelancePlatform.Application.Common.Respose;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ namespace FreelancePlatform.Application.Features.Categories.DeleteCategory;
 
 public static class DeleteCategoryEndpoint
 {
+    [Authorize(Roles = "Admin")]
     [WolverineDelete("/api/v1/categories/{id}"), Tags("Categories")]
     [EndpointSummary("Удаление категории")]
     [EndpointDescription("Возвращает сообщение об успешном удалении категории с указанным идентификатором.")]

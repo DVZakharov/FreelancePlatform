@@ -3,6 +3,7 @@ using FreelancePlatform.Application.Common.Interfaces;
 using FreelancePlatform.Application.Common.Respose;
 using FreelancePlatform.Application.DTOs;
 using FreelancePlatform.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ namespace FreelancePlatform.Application.Features.Categories.CreateCategory;
 
 public static class CreateCategoryEndpoint
 {
+    [Authorize(Roles = "Admin")]
     [WolverinePost("/api/v1/categories"), Tags("Categories")]
     [EndpointSummary("Создание новой категории")]
     [EndpointDescription("Возвращает сообщение об успешном создании категории и объект категории.")]

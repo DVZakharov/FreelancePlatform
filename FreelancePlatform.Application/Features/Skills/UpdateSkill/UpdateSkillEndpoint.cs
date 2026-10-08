@@ -2,6 +2,7 @@
 using FreelancePlatform.Application.Common.Interfaces;
 using FreelancePlatform.Application.Common.Respose;
 using FreelancePlatform.Application.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ namespace FreelancePlatform.Application.Features.Skills.UpdateSkill;
 
 public static class UpdateSkillEndpoint
 {
+    [Authorize(Roles = "Admin")]
     [WolverinePut("/api/v1/skills/{id}"), Tags("Skills")]
     [EndpointSummary("Обновление существующего навыка")]
     [EndpointDescription("Возвращает сообщение об успешном обновлении навыка с объектом навыка.")]

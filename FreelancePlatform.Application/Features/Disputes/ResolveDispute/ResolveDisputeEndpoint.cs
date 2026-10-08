@@ -16,7 +16,7 @@ namespace FreelancePlatform.Application.Features.Disputes.ResolveDispute;
 
 public static class ResolveDisputeEndpoint
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [WolverinePost("/api/v1/disputes/{id}/resolve"), Tags("Disputes")]
     [EndpointSummary("Разрешить спор")]
     [EndpointDescription("Администратор выносит решение по спору в пользу клиента или фрилансера. " +
@@ -41,11 +41,7 @@ public static class ResolveDisputeEndpoint
             return Result<DisputeDto>.BadRequest(DisputeTextResponses.ValidationError, [DisputeTextResponses.InvalidId]).ToHttpResult();
 
         var currentUserId = ctx.GetCurrentUserId();
-
-        var currentUser = await db.Users.FindAsync([currentUserId], ct);
-        if (!currentUser!.Role.HasFlag(UserRole.Admin))
-            return Result<DisputeDto>.Forbidden(DisputeTextResponses.NotAdmin).ToHttpResult();
-
+        
         var dispute = await db.Disputes
             .Include(d => d.Contract)
             .FirstOrDefaultAsync(d => d.Id == disputeId, ct);

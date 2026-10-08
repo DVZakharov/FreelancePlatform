@@ -1,33 +1,29 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Wolverine.Http;
 using FreelancePlatform.Application.Common.Interfaces;
 using FreelancePlatform.Application.Common.Respose;
 using FreelancePlatform.Domain.Enums;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
 
-namespace FreelancePlatform.Application.Features.Admin.DemoteFromAdmin;
+namespace FreelancePlatform.Application.Features.Admin.DemoteUser;
 
-public static class DemoteFromAdminEndpoint
+public static class DemoteUserEndpoint
 {
     [Authorize(Roles = "Admin")]
     [WolverinePost("/api/v1/admin/users/{id}/demote"), Tags("Admin")]
     [EndpointSummary("Снять роль администратора")]
-    [EndpointDescription("Снимает роль Admin с указанного пользователя по email. Защищено секретным ключом " +
-                         "настройки (не требует роли Admin, чтобы не создавать циклическую зависимость). " +
-                         "Нельзя разжаловать последнего администратора в системе.")]
+    [EndpointDescription("Снимает роль Admin с указанного пользователя и отзывает все его активные сессии. " +
+        "Нельзя разжаловать последнего администратора в системе. Доступно только действующим администраторам.")]
     public static async Task<IResult> Handle(
-        DemoteFromAdminRequest request,
+        string id,
         IApplicationDbContext db,
-        IConfiguration config,
         CancellationToken ct)
     {
-        var expectedSecret = config["Admin:SetupSecret"];
-        if (string.IsNullOrEmpty(expectedSecret) || request.SetupSecret != expectedSecret)
-            return Result<object>.Forbidden(AdminTextResponses.InvalidSecret).ToHttpResult();
+        if (!Guid.TryParse(id, out var userId))
+            return Result<object>.BadRequest(AdminTextResponses.ValidationError, [AdminTextResponses.InvalidUserId]).ToHttpResult();
 
-        var user = await db.Users.FirstOrDefaultAsync(u => u.Email == request.Email, ct);
+        var user = await db.Users.FindAsync([userId], ct);
         if (user is null)
             return Result<object>.NotFound(AdminTextResponses.UserNotFound).ToHttpResult();
 
@@ -39,6 +35,14 @@ public static class DemoteFromAdminEndpoint
             return Result<object>.Conflict(AdminTextResponses.CannotDemoteLastAdmin).ToHttpResult();
 
         user.Role &= ~UserRole.Admin;
+
+        var sessions = await db.RefreshTokens
+            .Where(r => r.UserId == userId && r.RevokedAt == null)
+            .ToListAsync(ct);
+
+        foreach (var session in sessions)
+            session.RevokedAt = DateTime.UtcNow;
+
         await db.SaveChangesAsync(ct);
 
         return Result<object>.Ok(null, AdminTextResponses.Demoted).ToHttpResult();

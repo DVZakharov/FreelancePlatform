@@ -1,1 +1,23 @@
-﻿/.idea/
+﻿# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Rider
+.idea/
+
+# Aspire
+**/appsettings.*.json
+!**/appsettings.json
+!**/appsettings.Development.json
+
+# User-specific files
+*.userosscache
+*.sln.docstates
+
+# Test results
+TestResults/

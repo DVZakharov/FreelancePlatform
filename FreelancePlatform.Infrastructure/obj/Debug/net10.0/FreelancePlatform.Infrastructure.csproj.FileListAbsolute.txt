@@ -17,3 +17,4 @@ O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Infrastructure\obj
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Infrastructure\obj\Debug\net10.0\FreelancePlatform.Infrastructure.pdb
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Infrastructure\obj\Debug\net10.0\FreelancePlatform.Infrastructure.genruntimeconfig.cache
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Infrastructure\obj\Debug\net10.0\ref\FreelancePlatform.Infrastructure.dll
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Infrastructure\obj\Debug\net10.0\FreelancePlatform.Infrastructure.sourcelink.json

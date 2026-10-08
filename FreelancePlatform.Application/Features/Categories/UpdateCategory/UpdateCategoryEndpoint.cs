@@ -2,6 +2,7 @@
 using FreelancePlatform.Application.Common.Interfaces;
 using FreelancePlatform.Application.Common.Respose;
 using FreelancePlatform.Application.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ namespace FreelancePlatform.Application.Features.Categories.UpdateCategory;
 
 public static class UpdateCategoryEndpoint
 {
+    [Authorize(Roles = "Admin")]
     [WolverinePut("/api/v1/categories/{id}"), Tags("Categories")]
     [EndpointSummary("Обновление существующей категории")]
     [EndpointDescription("Возвращает сообщение об успешном обновлении категории с объектом категории.")]

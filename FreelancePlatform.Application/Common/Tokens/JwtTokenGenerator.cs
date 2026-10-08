@@ -5,28 +5,24 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using FreelancePlatform.Domain.Enums;
 
 namespace FreelancePlatform.Application.Common.Tokens;
 
-public class JwtTokenGenerator : IJwtTokenGenerator
+public class JwtTokenGenerator(IOptions<JwtSettings> settings) : IJwtTokenGenerator
 {
-    private readonly JwtSettings _settings;
-
-    public JwtTokenGenerator(IOptions<JwtSettings> settings)
-    {
-        _settings = settings.Value;
-    }
+    private readonly JwtSettings _settings = settings.Value;
 
     public string GenerateToken(UserEntity user)
     {
-        var claims = new[]
+        var claims = new List<Claim>()
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.Role, user.Role.ToString()),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            new(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+            new(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new(ClaimTypes.Email, user.Email),
+            new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
+        claims.AddRange(Enum.GetValues<UserRole>().Where(r => r != UserRole.None && user.Role.HasFlag(r)).Select(role => new Claim(ClaimTypes.Role, role.ToString())));
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_settings.Secret));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

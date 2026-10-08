@@ -109,3 +109,4 @@ O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.AppHost\obj\Debug\
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.AppHost\obj\Debug\net10.0\FreelancePlatform.AppHost.pdb
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.AppHost\obj\Debug\net10.0\FreelancePlatform.AppHost.genruntimeconfig.cache
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.AppHost\obj\Debug\net10.0\ref\FreelancePlatform.AppHost.dll
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.AppHost\obj\Debug\net10.0\FreelancePlatform.AppHost.sourcelink.json

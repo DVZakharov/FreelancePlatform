@@ -3,6 +3,7 @@ using FreelancePlatform.Application.Common.Interfaces;
 using FreelancePlatform.Application.Common.Respose;
 using FreelancePlatform.Application.DTOs;
 using FreelancePlatform.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Wolverine.Http;
@@ -11,6 +12,7 @@ namespace FreelancePlatform.Application.Features.Skills.CreateSkill;
 
 public static class CreateSkillEndpoint
 {
+    [Authorize(Roles = "Admin")]
     [WolverinePost("/api/v1/skills"), Tags("Skills")]
     [EndpointSummary("Создание нового умения")]
     [EndpointDescription("Возвращает сообщение об успешном создании умения и объект умения.")]

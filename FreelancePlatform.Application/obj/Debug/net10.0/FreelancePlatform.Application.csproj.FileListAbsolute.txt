@@ -15,3 +15,4 @@ O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Application\obj\De
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Application\obj\Debug\net10.0\ref\FreelancePlatform.Application.dll
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Application\bin\Debug\net10.0\FreelancePlatform.Application.runtimeconfig.json
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Application\obj\Debug\net10.0\FreelancePlatform.Application.genruntimeconfig.cache
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.Application\obj\Debug\net10.0\FreelancePlatform.Application.sourcelink.json

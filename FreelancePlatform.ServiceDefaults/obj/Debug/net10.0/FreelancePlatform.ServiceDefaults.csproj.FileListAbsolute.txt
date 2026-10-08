@@ -10,3 +10,4 @@ O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\ob
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\obj\Debug\net10.0\refint\FreelancePlatform.ServiceDefaults.dll
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\obj\Debug\net10.0\FreelancePlatform.ServiceDefaults.pdb
 O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\obj\Debug\net10.0\ref\FreelancePlatform.ServiceDefaults.dll
+O:\Projects Visual Studio\FreelancePlatform\FreelancePlatform.ServiceDefaults\obj\Debug\net10.0\FreelancePlatform.ServiceDefaults.sourcelink.json

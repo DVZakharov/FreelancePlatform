@@ -3,13 +3,12 @@ using FreelancePlatform.Application;
 using FreelancePlatform.Infrastructure;
 using FreelancePlatform.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using Wolverine;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.AddServiceDefaults();
-
-builder.ConfigureWolverine();
+builder
+    .AddServiceDefaults()
+    .ConfigureWolverine();
 
 builder.Services
     .AddWolverineHttpServices()
@@ -21,11 +20,10 @@ builder.Services
 
 var app = builder.Build();
 
-app.UseExceptionHandler();
-
 app.MapDefaultEndpoints();
-
 app.UseSwaggerWithUi();
+
+app.UseExceptionHandler();
 
 app.UseAuthentication();
 app.UseAuthorization();
