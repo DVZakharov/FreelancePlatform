@@ -15,6 +15,8 @@ public class UserEntityConfiguration : IEntityTypeConfiguration<UserEntity>
 
         builder.Property(u => u.FullName).IsRequired().HasMaxLength(200);
         builder.Property(u => u.Role).HasConversion<int>();
+        
+        builder.Property(e => e.Version).IsRowVersion();
 
         builder.Property(u => u.Balance)
             .HasColumnType("decimal(18,2)")

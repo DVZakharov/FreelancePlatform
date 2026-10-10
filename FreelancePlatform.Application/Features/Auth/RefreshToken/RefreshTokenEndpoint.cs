@@ -14,7 +14,10 @@ public static class RefreshTokenEndpoint
 {
     [WolverinePost("/api/v1/auth/refresh"), Tags("Authentication")]
     [EndpointSummary("Обновление токена доступа с помощью refresh-токена")]
-    [EndpointDescription("Обновляет токен доступа, используя действительный refresh-токен.")]
+    [EndpointDescription("Обновляет токен доступа, используя действительный refresh-токен. " +
+        "Выданный токен одноразовый: при обновлении он заменяется новым. " +
+        "Повторное использование уже отозванного токена считается признаком кражи, " +
+        "и все активные сессии пользователя отзываются.")]
     public static async Task<IResult> Handle(
         [FromBody] RefreshTokenRequest request,
         IApplicationDbContext db,
@@ -28,23 +31,27 @@ public static class RefreshTokenEndpoint
             .FirstOrDefaultAsync(r => r.Token == request.RefreshToken, ct);
 
         if (existingToken is null)
-            return Result<LoginResponse>.BadRequest(AuthTextResponses.InvalidRefreshToken).ToHttpResult();
+            return Result<LoginResponse>.Unauthorized(AuthTextResponses.InvalidRefreshToken).ToHttpResult();
 
-        // Токен уже был отозван/использован — возможная компрометация.
-        // Отзываем ВСЕ активные токены пользователя ради безопасности.
-        if (!existingToken.IsActive)
+        // Токен уже был использован или отозван: возможная кража.
+        // Отзываем ВСЕ активные токены пользователя.
+        if (existingToken.RevokedAt is not null)
         {
-            var allUserTokens = await db.RefreshTokens
+            var activeTokens = await db.RefreshTokens
                 .Where(r => r.UserId == existingToken.UserId && r.RevokedAt == null)
                 .ToListAsync(ct);
 
-            foreach (var t in allUserTokens)
-                t.RevokedAt = DateTime.UtcNow;
+            foreach (var token in activeTokens)
+                token.RevokedAt = DateTime.UtcNow;
 
             await db.SaveChangesAsync(ct);
 
-            return Result<LoginResponse>.BadRequest(AuthTextResponses.RefreshTokenExpired).ToHttpResult();
+            return Result<LoginResponse>.Unauthorized(AuthTextResponses.RefreshTokenRevoked).ToHttpResult();
         }
+
+        // Просто истёк срок: ничего не отзываем, другие сессии пользователя не трогаем
+        if (existingToken.ExpiresAt <= DateTime.UtcNow)
+            return Result<LoginResponse>.Unauthorized(AuthTextResponses.RefreshTokenExpired).ToHttpResult();
 
         // Ротация: старый токен отзываем, выдаём новую пару
         var newRefreshToken = refreshGenerator.GenerateToken();
@@ -63,7 +70,13 @@ public static class RefreshTokenEndpoint
 
         await db.SaveChangesAsync(ct);
 
-        return Result<LoginResponse>.Ok(new LoginResponse(
-            newAccessToken, newRefreshToken, existingToken.User.Id, existingToken.User.Email, existingToken.User.FullName), AuthTextResponses.RefreshTokenSuccessful).ToHttpResult();
+        return Result<LoginResponse>.Ok(
+            new LoginResponse(
+                newAccessToken,
+                newRefreshToken,
+                existingToken.User.Id,
+                existingToken.User.Email,
+                existingToken.User.FullName),
+            AuthTextResponses.RefreshTokenSuccessful).ToHttpResult();
     }
 }

@@ -43,6 +43,9 @@ public static class SubmitMilestoneEndpoint
         if (milestone.Contract.FreelancerId != currentUserId)
             return Result<MilestoneDto>.Forbidden(MilestoneTextResponses.NotFreelancer).ToHttpResult();
 
+        if (milestone.Contract.Status != ContractStatus.Active) 
+            return Result<MilestoneDto>.Conflict(MilestoneTextResponses.ContractNotActive).ToHttpResult(); 
+        
         if (milestone.Status != MilestoneStatus.Funded)
             return Result<MilestoneDto>.Conflict(MilestoneTextResponses.NotFunded).ToHttpResult();
 

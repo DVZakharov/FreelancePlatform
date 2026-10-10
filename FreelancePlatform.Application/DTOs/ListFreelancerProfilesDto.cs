@@ -8,5 +8,5 @@ public sealed class ListFreelancerProfilesDto
     public int TotalCount { get; init; }
     public int ReturnedCount { get; init; }
 
-    public List<FreelancerProfileDto> Categories { get; init; } = [];
+    public List<FreelancerProfileDto> Items { get; init; } = [];
 }

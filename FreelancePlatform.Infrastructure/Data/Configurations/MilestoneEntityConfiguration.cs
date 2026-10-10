@@ -14,6 +14,8 @@ public class MilestoneEntityConfiguration : IEntityTypeConfiguration<MilestoneEn
         builder.Property(m => m.Amount).HasColumnType("decimal(18,2)");
         builder.Property(m => m.Status).HasConversion<string>().HasMaxLength(20);
 
+        builder.Property(e => e.Version).IsRowVersion();
+        
         builder.HasOne(m => m.Contract)
             .WithMany(c => c.Milestones)
             .HasForeignKey(m => m.ContractId)

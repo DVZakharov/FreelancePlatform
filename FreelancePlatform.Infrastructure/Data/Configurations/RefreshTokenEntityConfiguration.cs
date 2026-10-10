@@ -12,6 +12,8 @@ public class RefreshTokenEntityConfiguration : IEntityTypeConfiguration<RefreshT
 
         builder.Property(r => r.Token).IsRequired().HasMaxLength(500);
         builder.HasIndex(r => r.Token).IsUnique();
+        
+        builder.Property(e => e.Version).IsRowVersion();
 
         builder.HasOne(r => r.User)
             .WithMany()

@@ -26,6 +26,7 @@ public class AppDbContext : DbContext, IApplicationDbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+        modelBuilder.HasPostgresExtension("citext");
 
         foreach (var entityType in modelBuilder.Model.GetEntityTypes())
         {

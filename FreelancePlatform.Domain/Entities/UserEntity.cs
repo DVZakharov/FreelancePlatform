@@ -11,6 +11,8 @@ public class UserEntity : BaseEntity
     public UserRole Role { get; set; }
     public decimal Balance { get; set; }
 
+    public uint Version { get; set; }
+    
     public FreelancerProfileEntity? FreelancerProfile { get; set; }
     public ICollection<ProjectEntity> ProjectsAsClient { get; set; } = [];
     public ICollection<ProposalEntity> Proposals { get; set; } = [];

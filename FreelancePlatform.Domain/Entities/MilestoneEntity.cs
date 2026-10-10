@@ -10,6 +10,8 @@ public class MilestoneEntity : BaseEntity
     public decimal Amount { get; set; }
     public MilestoneStatus Status { get; set; } = MilestoneStatus.Pending;
     public DateTime? DueDate { get; set; }
+    
+    public uint Version { get; set; }
 
     public ContractEntity Contract { get; set; } = null!;
     public EscrowHoldEntity? EscrowHold { get; set; }

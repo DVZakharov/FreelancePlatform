@@ -1,5 +1,7 @@
 ﻿using FreelancePlatform.Application.Common.Respose;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace FreelancePlatform.Api.Extensions;
 
@@ -15,6 +17,9 @@ public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger, IHos
         var (code, message) = exception switch
         {
             UnauthorizedAccessException => (401, "Unauthorized"),
+            DbUpdateConcurrencyException => (409, "Данные изменены другим запросом, повторите"),
+            DbUpdateException { InnerException: PostgresException { SqlState: PostgresErrorCodes.UniqueViolation } }
+                => (409, "Конфликтующие данные"),
             _ => (500, "An unexpected error occurred")
         };
 

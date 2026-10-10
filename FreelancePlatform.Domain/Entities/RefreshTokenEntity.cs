@@ -15,6 +15,8 @@ public class RefreshTokenEntity : BaseEntity
     public string? IpAddress { get; set; }
     public DateTime? LastUsedAt { get; set; }
 
+    public uint Version { get; set; }
+    
     public bool IsActive => RevokedAt is null && ExpiresAt > DateTime.UtcNow;
 
     public UserEntity User { get; set; } = null!;

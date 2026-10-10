@@ -18,6 +18,8 @@ public class ProjectEntityConfiguration : IEntityTypeConfiguration<ProjectEntity
 
         builder.Property(p => p.BudgetMin).HasColumnType("decimal(18,2)");
         builder.Property(p => p.BudgetMax).HasColumnType("decimal(18,2)");
+        
+        builder.Property(e => e.Version).IsRowVersion();
 
         builder.HasOne(p => p.Client)
             .WithMany(u => u.ProjectsAsClient)

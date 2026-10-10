@@ -32,8 +32,9 @@ public static class ValidationExtensions
     {
         return ruleBuilder
             .NotEmpty().WithMessage(ValidatorsTextResponses.InvalidNameEmpty)
+            .MinimumLength(2).WithMessage(ValidatorsTextResponses.InvalidNameLength)
             .MaximumLength(100).WithMessage(ValidatorsTextResponses.InvalidNameLength)
-            .Matches(@"^[a-zA-Z0-9\s]+$").WithMessage(ValidatorsTextResponses.InvalidNameFormat);
+            .Must(v => v.All(c => !char.IsControl(c))).WithMessage(ValidatorsTextResponses.InvalidNameFormat);
     }
 
     public static IRuleBuilderOptions<T, int> MustBeValidPageNumber<T>(this IRuleBuilder<T, int> ruleBuilder)

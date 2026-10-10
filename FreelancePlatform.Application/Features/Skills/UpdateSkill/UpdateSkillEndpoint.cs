@@ -30,16 +30,18 @@ public static class UpdateSkillEndpoint
         if (!validationResult.IsValid)
             return Result<SkillDto>.BadRequest(SkillsTextResponses.ValidationFailed, [.. validationResult.Errors.Select(x => x.ErrorMessage)]).ToHttpResult();
 
+        var name = request.Name.Trim();
+        var lowered = name.ToLower();
+        
         var exists = await db.Skills.FirstOrDefaultAsync(s => s.Id == skillId, ct);
         if (exists == null)
             return Result<SkillDto>.NotFound(SkillsTextResponses.NotFound).ToHttpResult();
 
-        var nameExists = await db.Skills.AnyAsync(s => s.NameNormalized == request.Name.ToLowerInvariant() && s.Id != exists.Id, ct);
+        var nameExists = await db.Skills.AnyAsync(s => s.Name.ToLower() == lowered && s.Id != exists.Id, ct);
         if (nameExists)
             return Result<SkillDto>.Conflict(SkillsTextResponses.AlreadyExists).ToHttpResult();
 
-        exists.Name = request.Name.Trim();
-        exists.NameNormalized = request.Name.Trim().ToLowerInvariant();
+        exists.Name = name;
         await db.SaveChangesAsync(ct);
         return Result<SkillDto>.Ok(new SkillDto(exists.Id, exists.Name), SkillsTextResponses.Updated).ToHttpResult();
     }

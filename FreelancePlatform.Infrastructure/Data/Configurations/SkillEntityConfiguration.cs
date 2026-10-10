@@ -9,7 +9,7 @@ public class SkillEntityConfiguration : IEntityTypeConfiguration<SkillEntity>
     public void Configure(EntityTypeBuilder<SkillEntity> builder)
     {
         builder.HasKey(s => s.Id);
-        builder.Property(s => s.Name).IsRequired().HasMaxLength(100);
+        builder.Property(s => s.Name).HasColumnType("citext").IsRequired();
         builder.HasIndex(s => s.Name).IsUnique();
 
         builder.HasMany(s => s.FreelancerProfiles)

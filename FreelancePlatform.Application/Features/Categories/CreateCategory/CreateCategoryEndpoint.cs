@@ -25,13 +25,18 @@ public static class CreateCategoryEndpoint
     {
         var validationResult = await validator.ValidateAsync(request, ct);
         if (!validationResult.IsValid)
-            return Result<CategoryDto>.BadRequest(CategoriesTextResponses.ValidationFailed, [.. validationResult.Errors.Select(x => x.ErrorMessage)]).ToHttpResult();
+            return Result<CategoryDto>.BadRequest(
+                CategoriesTextResponses.ValidationFailed, 
+                [.. validationResult.Errors.Select(x => x.ErrorMessage)]).ToHttpResult();
 
-        var exists = await db.Categories.AnyAsync(c => c.NameNormalized == request.Name.ToLowerInvariant(), ct);
+        var name = request.Name.Trim();
+        var lowered = name.ToLower();
+        
+        var exists = await db.Categories.AnyAsync(s => s.Name.ToLower() == lowered, ct);
         if (exists)
             return Result<CategoryDto>.Conflict(CategoriesTextResponses.AlreadyExists).ToHttpResult();
 
-        var category = new CategoryEntity { Name = request.Name.Trim(), NameNormalized = request.Name.ToLowerInvariant() };
+        var category = new CategoryEntity { Name = name };
         db.Categories.Add(category);
         await db.SaveChangesAsync(ct);
 

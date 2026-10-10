@@ -30,16 +30,18 @@ public static class UpdateCategoryEndpoint
         if (!validationResult.IsValid)
             return Result<CategoryDto>.BadRequest(CategoriesTextResponses.ValidationFailed, [.. validationResult.Errors.Select(x => x.ErrorMessage)]).ToHttpResult();
 
+        var name = request.Name.Trim();
+        var lowered = name.ToLower();
+        
         var exists = await db.Categories.FirstOrDefaultAsync(c => c.Id == categoryId, ct);
         if (exists == null)
             return Result<CategoryDto>.NotFound(CategoriesTextResponses.NotFound).ToHttpResult();
 
-        var nameExists = await db.Categories.AnyAsync(c => c.NameNormalized == request.Name.ToLowerInvariant() && c.Id != exists.Id, ct);
+        var nameExists = await db.Categories.AnyAsync(c => c.Name.ToLower() == name && c.Id != exists.Id, ct);
         if (nameExists)
             return Result<CategoryDto>.Conflict(CategoriesTextResponses.AlreadyExists).ToHttpResult();
 
-        exists.Name = request.Name.Trim();
-        exists.NameNormalized = request.Name.Trim().ToLowerInvariant();
+        exists.Name = name;
         await db.SaveChangesAsync(ct);
         return Result<CategoryDto>.Ok(new CategoryDto(exists.Id, exists.Name), CategoriesTextResponses.Updated).ToHttpResult();
     }

@@ -13,7 +13,7 @@ public static class AuthTextResponses
 
     public const string RefreshTokenExpired = "Токен обновления истек.";
     public const string InvalidRefreshToken = "Неверный токен обновления.";
-
+    public const string RefreshTokenRevoked = "Токен обновления был отозван, пожалуйста, войдите снова";
 
     public const string ValidationFailed = "Ошибка валидации данных.";
     public const string InvalidEmailEmpty = "Адрес электронной почты не может быть пустым.";

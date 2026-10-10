@@ -6,7 +6,7 @@ public static class ValidatorsTextResponses
     public const string PageSizeInvalid = "Размер страницы должен быть больше 0.";
 
     public const string InvalidNameEmpty = "Название не может быть пустым.";
-    public const string InvalidNameLength = "Название должно содержать от 1 до 100 символов.";
+    public const string InvalidNameLength = "Название должно содержать от 2 до 100 символов.";
     public const string InvalidNameFormat = "Название может содержать только буквы, цифры и пробелы.";
 
     public const string InvalidId = "Некорректный идентификатор.";

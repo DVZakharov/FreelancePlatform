@@ -20,6 +20,7 @@ namespace FreelancePlatform.Infrastructure.Migrations
                 .HasAnnotation("ProductVersion", "10.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
+            NpgsqlModelBuilderExtensions.HasPostgresExtension(modelBuilder, "citext");
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("FreelancePlatform.Domain.Entities.CategoryEntity", b =>
@@ -33,12 +34,7 @@ namespace FreelancePlatform.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<string>("NameNormalized")
-                        .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("citext");
 
                     b.HasKey("Id");
 
@@ -260,6 +256,12 @@ namespace FreelancePlatform.Infrastructure.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
 
+                    b.Property<uint>("Version")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("xid")
+                        .HasColumnName("xmin");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ContractId");
@@ -316,6 +318,12 @@ namespace FreelancePlatform.Infrastructure.Migrations
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
+
+                    b.Property<uint>("Version")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("xid")
+                        .HasColumnName("xmin");
 
                     b.HasKey("Id");
 
@@ -404,6 +412,12 @@ namespace FreelancePlatform.Infrastructure.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
 
+                    b.Property<uint>("Version")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("xid")
+                        .HasColumnName("xmin");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Token")
@@ -458,12 +472,7 @@ namespace FreelancePlatform.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<string>("NameNormalized")
-                        .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("citext");
 
                     b.HasKey("Id");
 
@@ -545,6 +554,12 @@ namespace FreelancePlatform.Infrastructure.Migrations
 
                     b.Property<int>("Role")
                         .HasColumnType("integer");
+
+                    b.Property<uint>("Version")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("xid")
+                        .HasColumnName("xmin");
 
                     b.HasKey("Id");
 

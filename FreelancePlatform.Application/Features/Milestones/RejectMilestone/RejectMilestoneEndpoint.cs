@@ -49,6 +49,9 @@ public static class RejectMilestoneEndpoint
         if (milestone.Contract.ClientId != currentUserId)
             return Result<MilestoneDto>.Forbidden(MilestoneTextResponses.NotClient).ToHttpResult();
 
+        if (milestone.Contract.Status != ContractStatus.Active) 
+            return Result<MilestoneDto>.Conflict(MilestoneTextResponses.ContractNotActive).ToHttpResult(); 
+        
         if (milestone.Status != MilestoneStatus.Submitted)
             return Result<MilestoneDto>.Conflict(MilestoneTextResponses.NotSubmitted).ToHttpResult();
 

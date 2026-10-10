@@ -17,6 +17,8 @@ public class ProjectEntity : BaseEntity
     public Guid? SelectedProposalId { get; set; }
     public DateTime? PublishedAt { get; set; }
 
+    public uint Version { get; set; }
+    
     public UserEntity Client { get; set; } = null!;
     public CategoryEntity Category { get; set; } = null!;
     public ICollection<SkillEntity> RequiredSkills { get; set; } = [];

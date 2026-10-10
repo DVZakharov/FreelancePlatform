@@ -9,8 +9,8 @@ public class CategoryEntityConfiguration : IEntityTypeConfiguration<CategoryEnti
     public void Configure(EntityTypeBuilder<CategoryEntity> builder)
     {
         builder.HasKey(c => c.Id);
-        builder.Property(c => c.Name).IsRequired().HasMaxLength(100);
-        builder.HasIndex(c => c.Name).IsUnique();
+        builder.Property(s => s.Name).HasColumnType("citext").IsRequired();
+        builder.HasIndex(s => s.Name).IsUnique();
 
         builder.HasMany(c => c.Projects)
             .WithOne(p => p.Category)

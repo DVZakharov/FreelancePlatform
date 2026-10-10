@@ -15,7 +15,8 @@ public static class CreateSkillEndpoint
     [Authorize(Roles = "Admin")]
     [WolverinePost("/api/v1/skills"), Tags("Skills")]
     [EndpointSummary("Создание нового умения")]
-    [EndpointDescription("Возвращает сообщение об успешном создании умения и объект умения.")]
+    [EndpointDescription("Возвращает сообщение об успешном создании умения и объект умения. " +
+                         "Доступно только администраторам. Названия сравниваются без учёта регистра и лишних пробелов по краям.")]
     public static async Task<IResult> Handle(
         CreateSkillRequest request,
         IValidator<CreateSkillRequest> validator,
@@ -24,13 +25,18 @@ public static class CreateSkillEndpoint
     {
         var validationResult = await validator.ValidateAsync(request, ct);
         if (!validationResult.IsValid)
-            return Result<SkillDto>.BadRequest(SkillsTextResponses.ValidationFailed, [.. validationResult.Errors.Select(x => x.ErrorMessage)]).ToHttpResult();
+            return Result<SkillDto>.BadRequest(
+                SkillsTextResponses.ValidationFailed,
+                [.. validationResult.Errors.Select(x => x.ErrorMessage)]).ToHttpResult();
 
-        var exists = await db.Skills.AnyAsync(s => s.NameNormalized == request.Name.ToLowerInvariant(), ct);
+        var name = request.Name.Trim();
+        var lowered = name.ToLower();
+
+        var exists = await db.Skills.AnyAsync(s => s.Name.ToLower() == lowered, ct);
         if (exists)
             return Result<SkillDto>.Conflict(SkillsTextResponses.AlreadyExists).ToHttpResult();
 
-        var skill = new SkillEntity { Name = request.Name.Trim(), NameNormalized = request.Name.ToLowerInvariant() };
+        var skill = new SkillEntity { Name = name };
         db.Skills.Add(skill);
         await db.SaveChangesAsync(ct);
 
