@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FreelancePlatform.ServiceDefaults")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+268110bd43c3fb9964d1802f7b733b92bf89940a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95487288ccc7ebcb35ad8b6849247d7022d473da")]
 [assembly: System.Reflection.AssemblyProductAttribute("FreelancePlatform.ServiceDefaults")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FreelancePlatform.ServiceDefaults")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -3,7 +3,6 @@ using FreelancePlatform.Application.Common;
 using FreelancePlatform.Application.Common.Interfaces;
 using FreelancePlatform.Application.Common.Respose;
 using FreelancePlatform.Application.DTOs;
-using FreelancePlatform.Application.Features.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Wolverine.Http;
