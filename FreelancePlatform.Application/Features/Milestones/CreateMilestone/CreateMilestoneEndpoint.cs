@@ -19,7 +19,8 @@ public static class CreateMilestoneEndpoint
     [WolverinePost("/api/v1/contracts/{contractId}/milestones"), Tags("Milestones")]
     [EndpointSummary("Создание этапа контракта")]
     [EndpointDescription("Создаёт новый этап (milestone) в рамках активного контракта с указанной суммой. " +
-        "Доступно только заказчику. Этап создаётся в статусе Pending и требует последующего финансирования.")]
+        "Доступно только заказчику. Этап создаётся в статусе Pending и требует последующего финансирования. " +
+        "Суммарная стоимость всех этапов не может превышать согласованную цену контракта; срок этапа, если указан, должен быть в будущем.")]
     public static async Task<IResult> Handle(
         [FromRoute] string contractId,
         [FromBody] CreateMilestoneRequest request,
@@ -48,6 +49,13 @@ public static class CreateMilestoneEndpoint
 
         if (contract.Status != ContractStatus.Active)
             return Result<MilestoneDto>.Conflict(MilestoneTextResponses.ContractNotActive).ToHttpResult();
+
+        // Сумма всех этапов не должна превышать согласованную цену контракта
+        var existingTotal = await db.Milestones
+            .Where(m => m.ContractId == contractGuid)
+            .SumAsync(m => m.Amount, ct);
+        if (existingTotal + request.Amount > contract.AgreedPrice)
+            return Result<MilestoneDto>.Conflict(MilestoneTextResponses.ExceedsContractPrice).ToHttpResult();
 
         var milestone = new MilestoneEntity
         {

@@ -18,7 +18,8 @@ public static class UpdateProjectEndpoint
     [WolverinePut("/api/v1/projects/{id}"), Tags("Projects")]
     [EndpointSummary("Редактирование проекта")]
     [EndpointDescription("Обновляет проект. Доступно только владельцу и только пока проект в статусе " +
-        "Draft или Open. После начала работы (InProgress) редактирование запрещено.")]
+        "Draft или Open. После начала работы (InProgress) редактирование запрещено. " +
+        "Для проекта в статусе Open действуют те же строгие правила, что и при публикации.")]
     public static async Task<IResult> Handle(
         [FromRoute] string id,
         [FromBody] UpdateProjectRequest request,
@@ -62,6 +63,16 @@ public static class UpdateProjectEndpoint
         var skills = await db.Skills.Where(s => skillIds.Contains(s.Id)).ToListAsync(ct);
         if (skills.Count != skillIds.Distinct().Count())
             return Result<ProjectDto>.BadRequest(ProjectTextResponses.SkillsNotFound).ToHttpResult();
+
+        // Опубликованный проект должен оставаться валидным для публикации
+        if (project.Status == ProjectStatus.Open)
+        {
+            var errors = ProjectPublishRules.Validate(
+                request.Title, request.Description, request.BudgetMin, request.BudgetMax,
+                request.Deadline, skills.Count);
+            if (errors.Count > 0)
+                return Result<ProjectDto>.BadRequest(ProjectTextResponses.ValidationError, errors).ToHttpResult();
+        }
 
         project.CategoryId = categoryId;
         project.Category = category;

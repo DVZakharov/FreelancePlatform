@@ -8,7 +8,8 @@ public static class CategoriesTextResponses
     public const string AlreadyExists = "Категория с таким названием уже существует.";
     public const string GetSuccess = "Категория успешно получена.";
     public const string GetsSuccess = "Список категорий успешно получен.";
-
+    public const string InUse = "Категорию нельзя удалить: к ней привязаны проекты.";
+    
     public static string CreatedWithName(string name) => $"Категория \"{name}\" успешно создана.";
     public static string DeletedWithName(string name) => $"Категория \"{name}\" успешно удалена.";
 

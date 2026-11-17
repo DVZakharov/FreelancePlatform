@@ -37,7 +37,7 @@ public static class UpdateCategoryEndpoint
         if (exists == null)
             return Result<CategoryDto>.NotFound(CategoriesTextResponses.NotFound).ToHttpResult();
 
-        var nameExists = await db.Categories.AnyAsync(c => c.Name.ToLower() == name && c.Id != exists.Id, ct);
+        var nameExists = await db.Categories.AnyAsync(c => c.Name.ToLower() == lowered && c.Id != exists.Id, ct);
         if (nameExists)
             return Result<CategoryDto>.Conflict(CategoriesTextResponses.AlreadyExists).ToHttpResult();
 

@@ -36,6 +36,15 @@ public class CreateMilestoneValidatorTests
         _validator.Passes(new CreateMilestoneRequest("Этап", 0.01m, null));
 
     [Fact]
+    public void DueDateInThePast_IsInvalid() =>
+        _validator.FailsOn(new CreateMilestoneRequest("Этап", 100, DateTime.UtcNow.AddMinutes(-1)),
+            nameof(CreateMilestoneRequest.DueDate));
+
+    [Fact]
+    public void DueDateInTheFuture_IsValid() =>
+        _validator.Passes(new CreateMilestoneRequest("Этап", 100, DateTime.UtcNow.AddDays(1)));
+
+    [Fact]
     public void WithoutDueDate_IsValid() =>
         _validator.Passes(new CreateMilestoneRequest("Этап", 100, null));
 }

@@ -23,6 +23,7 @@ public class CreateProjectValidator : AbstractValidator<CreateProjectRequest>
         
         RuleFor(x => x.BudgetMax).GreaterThanOrEqualTo(x => x.BudgetMin).WithMessage(ProjectTextResponses.InvalidBudgetMax);
         
+        RuleFor(x => x.SkillIds).NotNull().WithMessage(ProjectTextResponses.SkillIdsRequired);
         RuleForEach(x => x.SkillIds).MustBeValidGuid();
     }
 }

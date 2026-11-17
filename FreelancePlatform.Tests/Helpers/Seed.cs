@@ -60,7 +60,8 @@ public static class Seed
         decimal amount,
         MilestoneStatus milestoneStatus = MilestoneStatus.Pending,
         ContractStatus contractStatus = ContractStatus.Active,
-        bool withEscrow = false)
+        bool withEscrow = false,
+        decimal? agreedPrice = null)
     {
         await using var db = testDb.NewContext();
 
@@ -74,7 +75,7 @@ public static class Seed
         var contract = new ContractEntity
         {
             ProjectId = project.Id, ClientId = client.Id, FreelancerId = freelancer.Id,
-            AgreedPrice = amount, AgreedDeadline = DateTime.UtcNow.AddDays(7), Status = contractStatus
+            AgreedPrice = agreedPrice ?? amount, AgreedDeadline = DateTime.UtcNow.AddDays(7), Status = contractStatus
         };
         var milestone = new MilestoneEntity
         {

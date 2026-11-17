@@ -1,10 +1,10 @@
-﻿using System.Data.Entity;
-using FreelancePlatform.Application.Common;
+﻿using FreelancePlatform.Application.Common;
 using FreelancePlatform.Application.Common.Interfaces;
 using FreelancePlatform.Application.Common.Respose;
 using FreelancePlatform.Application.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Wolverine.Http;
 
 namespace FreelancePlatform.Application.Features.Users.GetActiveSessions;

@@ -31,6 +31,9 @@ public static class DeleteCategoryEndpoint
         if (exists == null)
             return Result<object>.NotFound(CategoriesTextResponses.NotFound).ToHttpResult();
 
+        if (await db.Projects.AnyAsync(p => p.CategoryId == exists.Id, ct))
+            return Result<object>.Conflict(CategoriesTextResponses.InUse).ToHttpResult();
+        
         db.Categories.Remove(exists);
         await db.SaveChangesAsync(ct);
         return Result<object>.Ok(new { Id = exists.Id }, CategoriesTextResponses.DeletedWithName(exists.Name)).ToHttpResult();

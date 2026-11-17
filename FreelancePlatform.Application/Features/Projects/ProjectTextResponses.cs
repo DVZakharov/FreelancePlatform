@@ -34,5 +34,6 @@ public static class ProjectTextResponses
 
     public const string InvalidDeadline = "Крайний срок должен быть в будущем";
 
+    public const string SkillIdsRequired = "Список навыков должен быть передан (допускается пустой).";
     public const string OneOrMoreRequiredSkills = "Должен быть указан хотя бы один обязательный навык.";
 }

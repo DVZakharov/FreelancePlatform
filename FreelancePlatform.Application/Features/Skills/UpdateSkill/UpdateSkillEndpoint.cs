@@ -24,7 +24,7 @@ public static class UpdateSkillEndpoint
         CancellationToken ct)
     {
         if (!Guid.TryParse(id, out var skillId))
-            return Result<DisputeDto>.BadRequest(SkillsTextResponses.ValidationFailed, [SkillsTextResponses.InvalidId]).ToHttpResult();
+            return Result<SkillDto>.BadRequest(SkillsTextResponses.ValidationFailed, [SkillsTextResponses.InvalidId]).ToHttpResult();
         
         var validationResult = await validator.ValidateAsync(request, ct);
         if (!validationResult.IsValid)

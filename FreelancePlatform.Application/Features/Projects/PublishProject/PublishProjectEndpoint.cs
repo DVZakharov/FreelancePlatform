@@ -53,17 +53,9 @@ public static class PublishProjectEndpoint
             return Result<ProjectDto>.Conflict(ProjectTextResponses.NotDraft).ToHttpResult();
 
         // Строгая валидация перед публикацией
-        var errors = new List<string>();
-        if (string.IsNullOrWhiteSpace(project.Title))
-            errors.Add(ProjectTextResponses.TitleRequired);
-        if (string.IsNullOrWhiteSpace(project.Description) || project.Description.Length < 50)
-            errors.Add(ProjectTextResponses.InvalidDescriptionMinLenght);
-        if (project.BudgetMin <= 0 || project.BudgetMax <= 0)
-            errors.Add(ProjectTextResponses.InvalidBudget);
-        if (project.Deadline <= DateTime.UtcNow)
-            errors.Add(ProjectTextResponses.InvalidDeadline);
-        if (project.RequiredSkills.Count == 0)
-            errors.Add(ProjectTextResponses.OneOrMoreRequiredSkills);
+        var errors = ProjectPublishRules.Validate(
+            project.Title, project.Description, project.BudgetMin, project.BudgetMax,
+            project.Deadline, project.RequiredSkills.Count);
 
         if (errors.Count > 0)
             return Result<ProjectDto>.BadRequest(ProjectTextResponses.ValidationError, errors).ToHttpResult();
