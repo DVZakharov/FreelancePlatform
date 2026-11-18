@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using Wolverine.Http;
 
 namespace FreelancePlatform.Application.Features.Categories.UpdateCategory;
-
 public static class UpdateCategoryEndpoint
 {
     [Authorize(Roles = "Admin")]
@@ -24,7 +23,7 @@ public static class UpdateCategoryEndpoint
         CancellationToken ct)
     {
         if (!Guid.TryParse(id, out var categoryId))
-            return Result<DisputeDto>.BadRequest(CategoriesTextResponses.ValidationFailed, [CategoriesTextResponses.InvalidId]).ToHttpResult();
+            return Result<CategoryDto>.BadRequest(CategoriesTextResponses.ValidationFailed, [CategoriesTextResponses.InvalidId]).ToHttpResult();
         
         var validationResult = await validator.ValidateAsync(request, ct);
         if (!validationResult.IsValid)

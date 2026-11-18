@@ -19,7 +19,7 @@ public static class SearchUsersEndpoint
     [EndpointDescription("Возвращает постраничный список пользователей. Поддерживает поиск по email и имени " +
         "(частичное совпадение, без учёта регистра) и фильтр по роли. Доступно только администраторам.")]
     public static async Task<IResult> Handle(
-        [FromBody] SearchUsersRequest request,
+        [AsParameters] SearchUsersRequest request,
         IValidator<SearchUsersRequest> validator,
         IApplicationDbContext db,
         CancellationToken ct)

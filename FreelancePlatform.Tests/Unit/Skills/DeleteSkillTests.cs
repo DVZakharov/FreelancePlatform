@@ -12,10 +12,8 @@ public class DeleteSkillTests
     private async Task<List<string>> NamesAsync()
     {
         await using var check = _testDb.NewContext();
-        return await check.Skills
-            .OrderBy(s => s.Name)
-            .Select(s => s.Name)
-            .ToListAsync(TestContext.Current.CancellationToken);
+        var names = await check.Skills.Select(s => s.Name).ToListAsync(TestContext.Current.CancellationToken);
+        return [.. names.Order(StringComparer.Ordinal)]; // не зависит от культуры (кириллица vs латиница)
     }
     
     private async Task<Guid> SeedAsync(string name)

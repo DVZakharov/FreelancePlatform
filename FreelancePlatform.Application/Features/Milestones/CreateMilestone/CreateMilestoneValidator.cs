@@ -8,7 +8,7 @@ public class CreateMilestoneValidator : AbstractValidator<CreateMilestoneRequest
     {
         RuleFor(x => x.Title)
             .NotEmpty().WithMessage(MilestoneTextResponses.TitleEmpty)
-            .MaximumLength(2000).WithMessage(MilestoneTextResponses.TitleMaxSizeError);
+            .MaximumLength(200).WithMessage(MilestoneTextResponses.TitleMaxSizeError);
         
         RuleFor(x => x.Amount)
             .GreaterThan(0).WithMessage(MilestoneTextResponses.PriceBelowZeroError);

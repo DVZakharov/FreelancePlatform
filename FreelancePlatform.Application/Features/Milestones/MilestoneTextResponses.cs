@@ -24,7 +24,7 @@ public static class MilestoneTextResponses
     
     public const string ValidationError = "Ошибка валидации";
     public const string TitleEmpty = "Заголовок этапа не может быть пустым";
-    public const string TitleMaxSizeError = "Заголовок этапа не может превышать 2000 символов";
+    public const string TitleMaxSizeError = "Заголовок этапа не может превышать 200 символов";
     public const string PriceBelowZeroError = "Стоимость этапа не может быть меньше 0";
     public const string DueDateInPast = "Срок этапа должен быть в будущем";
     public const string ExceedsContractPrice = "Сумма этапов не может превышать согласованную стоимость контракта";

@@ -21,7 +21,8 @@ public class DeleteCategoryTests
     private async Task<List<string>> NamesAsync()
     {
         await using var check = _testDb.NewContext();
-        return await check.Categories.OrderBy(c => c.Name).Select(c => c.Name).ToListAsync(TestContext.Current.CancellationToken);
+        var names = await check.Categories.Select(c => c.Name).ToListAsync(TestContext.Current.CancellationToken);
+        return [.. names.Order(StringComparer.Ordinal)]; // не зависит от культуры (кириллица vs латиница)
     }
     
     private Task<Microsoft.AspNetCore.Http.IResult> DeleteAsync(string id, CancellationToken ct) =>
