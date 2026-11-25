@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XRGHhMhwKYM=",
+  "dgSpecHash": "ytmP07uluOg=",
   "success": true,
   "projectFilePath": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Infrastructure\\FreelancePlatform.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -106,7 +106,10 @@
     "C:\\Users\\zahar\\.nuget\\packages\\system.security.permissions\\6.0.0\\system.security.permissions.6.0.0.nupkg.sha512",
     "C:\\Users\\zahar\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\zahar\\.nuget\\packages\\wolverinefx\\6.38.0\\wolverinefx.6.38.0.nupkg.sha512",
-    "C:\\Users\\zahar\\.nuget\\packages\\wolverinefx.http\\6.38.0\\wolverinefx.http.6.38.0.nupkg.sha512"
+    "C:\\Users\\zahar\\.nuget\\packages\\wolverinefx.http\\6.38.0\\wolverinefx.http.6.38.0.nupkg.sha512",
+    "C:\\Users\\zahar\\.nuget\\packages\\microsoft.netcore.app.ref\\10.0.15\\microsoft.netcore.app.ref.10.0.15.nupkg.sha512",
+    "C:\\Users\\zahar\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\10.0.15\\microsoft.windowsdesktop.app.ref.10.0.15.nupkg.sha512",
+    "C:\\Users\\zahar\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\10.0.15\\microsoft.aspnetcore.app.ref.10.0.15.nupkg.sha512"
   ],
   "logs": []
 }
