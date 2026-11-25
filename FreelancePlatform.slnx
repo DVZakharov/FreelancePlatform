@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="FreelancePlatform.Api/FreelancePlatform.Api.csproj" />
+  <Project Path="FreelancePlatform.AppHost/FreelancePlatform.AppHost.csproj" />
+  <Project Path="FreelancePlatform.Application/FreelancePlatform.Application.csproj" />
+  <Project Path="FreelancePlatform.Domain/FreelancePlatform.Domain.csproj" />
+  <Project Path="FreelancePlatform.Infrastructure/FreelancePlatform.Infrastructure.csproj" />
+  <Project Path="FreelancePlatform.ServiceDefaults/FreelancePlatform.ServiceDefaults.csproj" />
+  <Project Path="FreelancePlatform.Tests/FreelancePlatform.Tests.csproj" />
+</Solution>

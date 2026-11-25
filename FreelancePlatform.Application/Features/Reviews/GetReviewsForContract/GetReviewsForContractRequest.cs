@@ -1,0 +1,3 @@
+﻿namespace FreelancePlatform.Application.Features.Reviews.GetReviewsForContract;
+
+public record GetReviewsForContractRequest(string ContractId);

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "LkEXUrf4qsY=",
+  "success": true,
+  "projectFilePath": "O:\\Projects Visual Studio\\FreelancePlatform\\FreelancePlatform.Domain\\FreelancePlatform.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\zahar\\.nuget\\packages\\microsoft.netcore.app.ref\\10.0.15\\microsoft.netcore.app.ref.10.0.15.nupkg.sha512",
+    "C:\\Users\\zahar\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\10.0.15\\microsoft.windowsdesktop.app.ref.10.0.15.nupkg.sha512",
+    "C:\\Users\\zahar\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\10.0.15\\microsoft.aspnetcore.app.ref.10.0.15.nupkg.sha512"
+  ],
+  "logs": []
+}

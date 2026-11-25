@@ -1,0 +1,3 @@
+﻿namespace FreelancePlatform.Application.Features.Proposals.GetProposalsForProject;
+
+public record GetProposalsForProjectRequest(string ProposalId);
